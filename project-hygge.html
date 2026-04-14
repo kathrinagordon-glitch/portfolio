@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyggehäuser — Architecture Project</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #FFFFFF;
+            --color-text: #1A1A18;
+            --color-sage: #4A6741;
+            --color-sand: #E8E0D0;
+            --color-terracotta: #4A6741;
+            --color-accent-light: #EEF2EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===== TOP BAR NAV ===== */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background-color: var(--color-bg);
+            border-bottom: 1px solid var(--color-sand);
+        }
+
+        .bar-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .bar-name a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .bar-name a:hover {
+            color: var(--color-terracotta);
+        }
+
+        .bar-back {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .bar-back a {
+            color: var(--color-terracotta);
+            text-decoration: none;
+            transition: letter-spacing 0.2s ease;
+        }
+
+        .bar-back a:hover {
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== PROJECT HEADER ===== */
+        .project-header {
+            padding: 80px 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-sage);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 4.25rem;
+            line-height: 1.05;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .project-subline {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 300;
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--color-sand);
+            color: var(--color-text);
+            text-transform: none;
+            background-color: transparent;
+            transition: background-color 0.2s ease;
+        }
+
+        .project-tag:hover {
+            background-color: var(--color-accent-light);
+        }
+
+        /* ===== SECTION SPACING ===== */
+        .section {
+            padding: 80px 3rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2.25rem;
+            color: var(--color-text);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .section-subheading {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.375rem;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .section-copy {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-copy--large {
+            font-size: 1.0625rem;
+            line-height: 1.9;
+            max-width: 560px;
+        }
+
+        .section-copy--wide {
+            max-width: 660px;
+            margin-bottom: 2rem;
+        }
+
+        .section-columns {
+            display: grid;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .section-columns-60-40 {
+            grid-template-columns: 60% 40%;
+        }
+
+        .section-columns-55-45 {
+            grid-template-columns: 55% 45%;
+        }
+
+        .grid-two,
+        .grid-three,
+        .grid-four {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .placeholder-block {
+            width: 100%;
+            background-color: var(--color-sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            color: var(--color-text);
+            opacity: 0.6;
+        }
+
+        .placeholder-caption {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.75rem;
+            font-style: italic;
+            color: var(--color-sage);
+            margin-top: 0.75rem;
+        }
+
+        .pull-quote {
+            border-left: 2px solid var(--color-sage);
+            padding-left: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pull-quote .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.375rem;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .pull-quote .quote-by {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.8125rem;
+            color: var(--color-sage);
+        }
+
+        .flow-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.8125rem;
+            color: var(--color-text);
+        }
+
+        .flow-step {
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--color-sand);
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
+            color: var(--color-terracotta);
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .feature-item {
+            padding: 12px 0;
+            border-top: 1px solid var(--color-sand);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.9375rem;
+        }
+
+        .feature-item::before {
+            content: '–';
+            color: var(--color-terracotta);
+            display: inline-block;
+            width: 1rem;
+        }
+
+        .border-band {
+            border-top: 1px solid var(--color-sand);
+            padding: 14px 0;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.8125rem;
+            color: var(--color-sage);
+            letter-spacing: 0.1em;
+            background-color: var(--color-accent-light);
+        }
+
+        /* ===== PROJECT CONTENT ===== */
+        .details-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text);
+        }
+
+        .details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .details-item {
+            padding: 1rem 0;
+            border-top: 1px solid var(--color-sand);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .details-item:last-of-type {
+            border-bottom: 1px solid var(--color-sand);
+        }
+
+        .detail-value {
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: var(--color-text);
+        }
+
+        .download-link {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--color-terracotta);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: letter-spacing 0.2s ease;
+        }
+
+        .download-link:hover {
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--color-sand);
+            padding: 2rem 3rem;
+            background-color: var(--color-bg);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+
+        .footer-divider {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            color: var(--color-sage);
+        }
+
+        .footer-year {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--color-text);
+        }
+
+        /* ===== IMAGE FADE-IN & ZOOM ===== */
+        img:not(#lightbox-img), .img-placeholder {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            overflow: hidden;
+        }
+
+        img:not(#lightbox-img).visible, .img-placeholder.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        img:not(#lightbox-img):hover, .img-placeholder:hover {
+            transform: scale(1.02);
+            transition: transform 0.4s ease;
+        }
+
+        /* ===== IMAGE ZOOM ===== */
+        .zoom-wrap {
+            position: relative;
+            display: block;
+            width: 100%;
+            overflow: visible;
+        }
+        .zoom-lens {
+            position: absolute;
+            border: 1.5px solid rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.06);
+            pointer-events: none;
+            display: none;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 2px 12px rgba(0,0,0,0.18);
+            cursor: crosshair;
+        }
+        .zoom-result {
+            display: none;
+            position: fixed;
+            border: 1px solid rgba(0,0,0,0.12);
+            background-repeat: no-repeat;
+            background-color: #f8f5f0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            .top-bar {
+                padding: 1rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.4rem;
+            }
+
+            .project-subline {
+                font-size: 0.95rem;
+            }
+
+            .section, .project-header {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .section-columns-60-40,
+            .section-columns-55-45,
+            .grid-two,
+            .grid-three,
+            .grid-four {
+                grid-template-columns: 1fr;
+            }
+
+            .border-band {
+                text-align: left;
+            }
+
+            footer {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR NAVIGATION ===== -->
+    <nav class="top-bar">
+        <div class="bar-name">
+            <a href="index.html">Your Name</a>
+        </div>
+        <div class="bar-back">
+            <a href="index.html">← Back to portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ===== PROJECT HEADER ===== -->
+    <header class="project-header section">
+        <div class="section-inner">
+            <p class="project-label">Architecture · Community Design · Graduation Project 2022</p>
+            <h1 class="project-title">Hyggehäuser</h1>
+            <p class="project-subline" style="font-size:0.9375rem; color:var(--color-sage); margin-bottom:0.75rem;">テラスでつながる川沿いの集合住宅</p>
+            <p class="project-subline" style="font-size:1.0625rem; max-width:600px; color:var(--color-text); opacity:0.8; margin-bottom:2rem;">A terrace-connected riverside housing complex in Kyoto — and the digital platform designed to bring its residents together.</p>
+            <div class="project-tags">
+                <span class="project-tag">Graduation Project</span>
+                <span class="project-tag">Residential Architecture</span>
+                <span class="project-tag">Community Design</span>
+                <span class="project-tag">UX Design</span>
+                <span class="project-tag">Digital Platform</span>
+                <span class="project-tag">Kyoto</span>
+            </div>
+            <div class="pull-quote">
+                <p class="quote-text">"It is a fact of life that the greatest interest of people is other people."</p>
+                <p class="quote-by">— Jan Gehl, Danish urban planner</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO IMAGE ===== -->
+    <section class="section">
+        <div class="section-inner">
+            <img src="assets/images/hygge/Exterior .jpeg" alt="Hyggehäuser — terraced courtyard view, Fushimi Ward, Kyoto 2022" style="width:100%; display:block;">
+            <p class="placeholder-caption">Hyggehäuser — terraced courtyard view, Fushimi Ward, Kyoto 2022</p>
+        </div>
+    </section>
+
+    <!-- ===== PROJECT RENDERS ===== -->
+    <section class="section">
+        <div class="section-inner">
+            <!-- Render 1: Aerial courtyard view -->
+            <div style="margin-bottom: 1.5rem;">
+                <div class="placeholder-block img-placeholder" style="aspect-ratio:16 / 9;">Image placeholder</div>
+                <p class="placeholder-caption">Hyggehäuser — aerial render, terraced courtyard facing the Hōkawa River</p>
+            </div>
+
+            <!-- Render 2: Ground floor view -->
+            <div style="margin-bottom: 1.5rem;">
+                <div class="placeholder-block img-placeholder" style="aspect-ratio:16 / 9;">Image placeholder</div>
+                <p class="placeholder-caption">Ground floor — shared courtyard, café terrace, and children's play area</p>
+            </div>
+
+            <!-- Render 3: Terrace levels -->
+            <div style="margin-bottom: 1.5rem;">
+                <div class="placeholder-block img-placeholder" style="aspect-ratio:16 / 9;">Image placeholder</div>
+                <p class="placeholder-caption">Terrace levels — private balconies stepping toward shared landings</p>
+            </div>
+
+            <!-- Render 4: River edge -->
+            <div>
+                <div class="placeholder-block img-placeholder" style="aspect-ratio:16 / 9;">Image placeholder</div>
+                <p class="placeholder-caption">River edge — wooden deck and biotope connecting building to waterfront</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECT CONTENT ===== -->
+    <main>
+        <section class="section">
+            <div class="section-inner section-columns section-columns-60-40">
+                <div>
+                    <p class="section-copy section-copy--large">Hyggehäuser began as a graduation project in architecture. It became a study in how physical space shapes everyday behaviour — and how a digital layer can help make community visible.
+                    The building creates the conditions. The platform helps residents navigate them.</p>
+                </div>
+                <div>
+                    <div class="details-label">Project details</div>
+                    <ul class="details-list">
+                        <li class="details-item"><div class="detail-value">Location: Fushimi Ward, Kyoto, Japan</div></li>
+                        <li class="details-item"><div class="detail-value">Year: 2022</div></li>
+                        <li class="details-item"><div class="detail-value">Type: Graduation Project</div></li>
+                        <li class="details-item"><div class="detail-value">Disciplines: Architecture + UX Design</div></li>
+                        <li class="details-item"><div class="detail-value">Scale: Mixed-use residential complex</div></li>
+                        <li class="details-item"><div class="detail-value">Status: Academic proposal</div></li>
+                    </ul>
+                    <a href="assets/pdfs/hyggehaeuser/Portfolio_Hygge.pdf" class="download-link" target="_blank">Download full presentation →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">The Challenge</h2>
+                <div class="section-columns section-columns-60-40">
+                    <div>
+                        <p class="section-copy">Modern apartment living places people in close physical proximity while offering almost no infrastructure for actual connection. Residents share walls but not lives.
+                        The newly arrived resident — unfamiliar with the neighbourhood, without established social networks — was at the centre of this inquiry. The challenge was to design an environment where community could emerge naturally, without forcing it.</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:4 / 3;">Image placeholder</div>
+                        <p class="placeholder-caption">The site before — monolithic block on the riverfront</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTEXTUAL RESEARCH ===== -->
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Contextual Research — Understanding the Environment and Its Users</h2>
+                <p class="section-copy section-copy--wide">Good design starts with observation, not drawing. Before touching a pencil, I mapped the site the way a UX researcher maps a user environment — looking for existing behaviours, latent needs, and missed opportunities.</p>
+                <p class="section-copy section-copy--wide">Fushimi Ward along the Hōkawa River already had everything needed for connected community living: a quiet waterway, cycling infrastructure, a supermarket, small local shops, a kindergarten nearby, and low-traffic residential streets. The existing apartment block on the site sat in the middle of all of this and ignored every single one of those assets.</p>
+                <p class="section-copy section-copy--wide">The design problem was not about adding something new. It was about removing what was blocking what was already there.</p>
+                <div class="grid-two">
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:3 / 2;">Image placeholder</div>
+                        <p class="placeholder-caption">Contextual research map — pedestrian flows, cyclist routes, existing amenities, and social infrastructure around the Hōkawa riverside site</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:3 / 2;">Image placeholder</div>
+                        <p class="placeholder-caption">Site model — existing building footprint showing what the current block ignores about its context</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RESEARCH THAT SHAPED THINKING ===== -->
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Research That Shaped the Thinking</h2>
+                <p class="section-subheading">Understanding what already works — and why</p>
+                <p class="section-copy section-copy--wide">Before designing anything, I needed to understand what had already solved the problem I was trying to solve. Not to copy the form — but to understand the human reasoning behind it. What spatial decisions actually lead to community? What happens when you design for variety instead of uniformity?</p>
+
+                <!-- Precedent 1: BIG 79 & Park -->
+                <div style="border-left: 2px solid var(--color-sage); padding-left: 1.5rem; margin-bottom: 2.5rem;">
+                    <p class="section-subheading">BIG — 79 &amp; Park, Stockholm</p>
+                    <p class="section-copy">Analysing 79 &amp; Park revealed the core insight: varied unit composition is not an aesthetic choice — it is a social one. When every apartment is different, the building stops assuming that all residents have the same needs, the same family structure, the same relationship to privacy and community.</p>
+                    <p class="section-copy">The terrace-block form creates a gradient of outdoor space at every level — from deeply private balconies to semi-shared landings to fully communal ground floor areas. That gradient is the architecture of choice: residents can be as visible or as withdrawn as they want to be, on any given day.</p>
+                    <div class="pull-quote">
+                        <p class="quote-text">"If all people are different, then why are most of the apartments the same?"</p>
+                        <p class="quote-by">— Bjarke Ingels</p>
+                    </div>
+                    <div style="margin-top: 2.5rem;">
+                        <div style="overflow:hidden; width:100%;">
+  <img src="assets/images/hygge/bIG different apartments.jpg" alt="79 & Park, Stockholm — BIG Architects. Terrace-block form and varied unit composition" style="width:100%; display:block; object-fit:cover; object-position:center; margin:-6% -4%; width:108%;">
+</div>
+                        <p class="placeholder-caption">79 &amp; Park, Stockholm — BIG Architects. Terrace-block form and varied unit composition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WITHOUT MAKI SECTION - MOVED TO USERS & DESIGN GOALS ===== -->
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Users &amp; Design Goals</h2>
+                <div class="section-columns section-columns-55-45">
+                    <div>
+                        <p class="section-copy">The project is grounded in five resident profiles — families, couples, single residents, elderly households, and shared houses. Each needs a different balance of privacy, access, and community.</p>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Families — shared outdoor space, play areas, and nearby community facilities</div>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Couples — privacy at home with easy access to shared amenities</div>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Single residents — designed to reduce isolation and enable casual neighbourly interaction</div>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Elderly residents — passive social opportunities across gentle, accessible routes</div>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Share house residents — community-minded anchors within the broader building</div>
+                    </div>
+                    <div>
+                        <p class="section-copy">Three guiding goals shaped every decision:</p>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Encourage natural, unforced encounter</div>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Support shared activities without mandating participation</div>
+                        <div style="border-top:1px solid var(--color-sand); padding:10px 0;">Maintain personal comfort, privacy, and autonomy</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Spatial Concept</h2>
+                <p class="section-subheading">構成 / Eight shifts from isolation to community</p>
+                <!-- ===== SPATIAL CONCEPT: EIGHT SHIFTS DIAGRAM ===== -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="placeholder-block img-placeholder" style="aspect-ratio:4 / 3;">Image placeholder</div>
+                    <p class="placeholder-caption">Eight spatial shifts — from isolation to community. Concept diagram.</p>
+                </div>
+                <p class="section-copy">Five residential blocks circle a shared courtyard. Daily movement is routed through common space, not around it. The riverfront was reactivated through terraces, gardens, and a stepped path to the water.</p>
+                <div class="grid-three">
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:4 / 3;">Image placeholder</div>
+                        <p class="placeholder-caption">Site plan — five residential blocks organised around the courtyard</p>
+                    </div>
+                    <div>
+                        <img src="assets/images/hygge/apartment types.jpg" alt="Resident type zoning diagram — Hyggehäuser unit distribution" style="width:100%; display:block;">
+                        <p class="placeholder-caption">Resident type zoning diagram</p>
+                    </div>
+                    <div>
+                        <!-- Section drawing with zoom + lightbox -->
+<div style="margin-bottom: 2rem;">
+  <div class="zoom-wrap" id="zoom-wrap-section">
+    <img
+      id="zoom-img-section"
+      src="assets/images/hygge/section.jpg"
+      alt="Section A-A' — terraces stepping toward the river"
+      onclick="openLightbox(this.src, this.alt)"
+      style="width:100%; display:block; cursor:crosshair;"
+    >
+    <div class="zoom-lens" id="zoom-lens-section"></div>
+  </div>
+  <div class="zoom-result" id="zoom-result-section"></div>
+  <p style="font-size: 0.75rem; color: #888; margin-top: 0.5rem;">Section A-A' — terraces stepping toward the river. Hover to zoom · Click to enlarge.</p>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEW: THE MIXED-USE SYSTEM ===== -->
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Housing as a Small City</h2>
+                <p class="section-copy section-copy--wide">A key hypothesis of the project: residential buildings should function as mixed-use complexes — small cities in themselves. When everything a resident needs is within the same building or courtyard, the daily pattern of life changes fundamentally.</p>
+                <p class="section-copy section-copy--wide">Instead of commuting to work, cycling to a café, driving to a gym, and then returning to an isolated apartment — the resident moves through a layered environment where those activities are woven into the architecture itself.</p>
+
+                <!-- Daily Pattern Comparison Diagram -->
+                <div style="margin: 2.5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- Left column: Conventional -->
+                    <div>
+                        <p style="font-family: 'DM Sans', sans-serif; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-sage); margin-bottom: 1rem;">Conventional daily pattern</p>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Wake up in isolated unit</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Commute</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Work</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Commute back</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Shop separately</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Return to isolated unit</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0; border-bottom: 1px solid var(--color-sand);">Repeat</div>
+                    </div>
+
+                    <!-- Right column: Hyggehäuser -->
+                    <div>
+                        <p style="font-family: 'DM Sans', sans-serif; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-sage); margin-bottom: 1rem;">Hyggehäuser daily pattern</p>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Wake up with terrace view</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Work from shared studio below</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Coffee in courtyard café</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Children to on-site kindergarten</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Evening in shared kitchen</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0;">Neighbour encounter on way home</div>
+                        <div style="border-top: 1px solid var(--color-sand); padding: 10px 0; border-bottom: 1px solid var(--color-sand);">Community by design</div>
+                    </div>
+                </div>
+
+                <p class="section-copy section-copy--wide">The programme reflects this: each block contains private units, shared terraces, a café, workshop and studio spaces, a kindergarten, a sports studio, a farmers market space, a coin laundry, a lounge, and event spaces. These are not amenities — they are the social infrastructure of a neighbourhood, compressed into a single site.</p>
+
+                <div>
+                    <div class="placeholder-block img-placeholder" style="aspect-ratio:4 / 3;">Image placeholder</div>
+                    <p class="placeholder-caption">Programme diagram — ground floor plan showing mixed-use layout at 1:400</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Process</h2>
+                <p class="section-copy">The project evolved through physical model studies, diagram iterations, and scenario-based problem solving. Each cycle tested how people move, meet, and pause in the building.</p>
+                <div class="grid-two">
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:3 / 2;">Image placeholder</div>
+                        <p class="placeholder-caption">Exploring modular unit layouts and terrace configurations</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:3 / 2;">Image placeholder</div>
+                        <p class="placeholder-caption">Testing visibility and privacy gradients between units</p>
+                    </div>
+                </div>
+                <div class="grid-two" style="margin-top:2rem;">
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:3 / 2;">Image placeholder</div>
+                        <p class="placeholder-caption">Physical model — aerial courtyard view</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:3 / 2;">Image placeholder</div>
+                        <p class="placeholder-caption">Physical model — river edge relationships</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEW: DESIGN VISION ===== -->
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">設計ビジョン / Design Vision</h2>
+                <p class="section-copy section-copy--wide">The design vision was always human before architectural. Before drawing a single section, the question was: what does it feel like to live here? What happens on a Tuesday morning? Where do children play? Where does someone go when they want to be alone — and where do they go when they want to find someone?</p>
+                <p class="section-copy section-copy--wide">The watercolour sketch below was the first image of the project — drawn before any floor plan existed. It shows families, children, couples, and individuals sharing a courtyard with water, trees, and light. It is not a technical document. It is a promise about what the building is for.</p>
+                <div>
+                    <div class="placeholder-block img-placeholder" style="aspect-ratio:4 / 3;">Image placeholder</div>
+                    <p class="placeholder-caption">設計ビジョン — early design vision sketch. Families, children, and residents sharing the courtyard. Drawn before any floor plan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">User Experience in Space</h2>
+                <p class="section-copy">This project is about more than floor plans. It is about the sequence of moments a resident experiences: arriving home, passing a shared terrace, noticing an event on the courtyard, deciding whether to linger.</p>
+                <div class="flow-row">
+                    <div class="flow-step">Private unit</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Personal terrace</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Shared landing</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Courtyard</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Ground floor facilities</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">River deck</div>
+                </div>
+                <p class="placeholder-caption">Spatial journey — from private to shared</p>
+                <div style="margin-top:2rem;">
+                    <div class="placeholder-block img-placeholder" style="aspect-ratio:16 / 9;">Image placeholder</div>
+                    <p class="placeholder-caption">Rendered view — shared terrace as a social catalyst</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Extending the Experience Through Digital Interaction</h2>
+                <div class="border-band">Architecture · · · · · · · · · · · · · · UX Design</div>
+                <p class="section-copy section-copy--wide">The building creates the conditions for connection. The digital platform helps residents discover those conditions, especially when they are new to the building and do not yet know who or what is nearby.</p>
+                <div style="margin-top:1rem;">
+                    <div class="placeholder-block img-placeholder" style="aspect-ratio:16 / 9;">Image placeholder</div>
+                    <p class="placeholder-caption">Digital platform — concept overview</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Concept &amp; Features</h2>
+                <div class="section-columns section-columns-55-45">
+                    <div>
+                        <p class="section-copy">The platform is built around one insight: the hardest moment is the first one. New residents do not yet know where to go, what is available, or who to meet. The app makes the shared building legible and easy to engage with.</p>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">Event discovery for shared spaces</div>
+                        <div class="feature-item">Booking system for communal areas</div>
+                        <div class="feature-item">Resident directory and introductions</div>
+                        <div class="feature-item">Announcements and building updates</div>
+                        <div class="feature-item">Neighbourhood recommendations around the river</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">User Journey</h2>
+                <p class="section-copy">A new resident arrives with no social connections. The app becomes their first interface with the community — before they have met a single neighbour.</p>
+                <div class="flow-row" style="font-size:0.9375rem; gap:0.75rem;">
+                    <div class="flow-step">Move in</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Open app</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Discover event</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Book shared space</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Attend</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Meet neighbours</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-step">Feel at home</div>
+                </div>
+                <p class="placeholder-caption">End-to-end user journey — from arrival to belonging</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <h2 class="section-heading">Wireframes</h2>
+                <p class="section-copy">Low-fidelity wireframes focused on simplicity, spatial clarity, and reducing discovery friction. The interface always keeps the building context visible.</p>
+                <div class="grid-four">
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:9 / 16;">Image placeholder</div>
+                        <p class="placeholder-caption">Home feed — events and spaces at a glance</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:9 / 16;">Image placeholder</div>
+                        <p class="placeholder-caption">Events — discover what is happening today</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:9 / 16;">Image placeholder</div>
+                        <p class="placeholder-caption">Booking — reserve a shared room in two taps</p>
+                    </div>
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:9 / 16;">Image placeholder</div>
+                        <p class="placeholder-caption">Community — neighbour profiles and shared interests</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner" style="text-align:left;">
+                <h2 class="section-heading">Outcome</h2>
+                <div style="max-width:660px; margin-top:0;">
+                    <p class="section-copy">Hyggehäuser demonstrates that architecture and interaction design can work together to shape belonging. The building gives form to community; the platform makes it discoverable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner" style="text-align:left;">
+                <h2 class="section-heading">Reflection</h2>
+                <div style="max-width:660px; margin-top:0;">
+                    <p class="section-copy">This project shifted how I think about design. I began with a spatial question — how do you build a community? — and ended with interaction design questions: What is the first thing someone sees? Where do they get stuck? What makes them return?
+                    Architecture taught me systems thinking and spatial empathy. I want to apply those skills across physical and digital experiences, shaping environments that feel alive and welcoming.</p>
+                    <p class="section-copy">The long-term ambition of Hyggehäuser goes beyond this single building. The ultimate goal is cooperative housing — a model where future residents are involved in the design process itself, helping shape the environment they will live in. In Denmark this exists as a formal cooperative structure. In Japan it remains rare. Bringing that model to Fushimi Ward — and eventually beyond — is what this project points toward.</p>
+                    <p class="section-copy">That vision of participatory, human-centred design is what led me from architecture toward interaction design. If you can involve people in designing their physical home, why not their digital one? Why not every environment they inhabit?</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== SCRIPT FOR IMAGE FADE-IN ===== -->
+    <script>
+        const images = document.querySelectorAll('img:not(#lightbox-img), .img-placeholder');
+        const imgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        images.forEach(img => imgObserver.observe(img));
+    </script>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-name">Your Name</div>
+            <div class="footer-divider">間</div>
+            <div class="footer-year">2026</div>
+        </div>
+    </footer>
+<!-- Lightbox overlay -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center;">
+  <img id="lightbox-img" style="max-width:92%; max-height:92vh; display:block; margin:auto;">
+  <p id="lightbox-caption" style="color:#ccc; text-align:center; font-size:0.8rem; margin-top:1rem; font-family:'DM Sans', sans-serif;"></p>
+</div>
+
+<script>
+/* ===== IMAGE ZOOM ===== */
+function initZoom(wrapId, imgId, lensId, resultId, zoomFactor) {
+  const wrap   = document.getElementById(wrapId);
+  const img    = document.getElementById(imgId);
+  const lens   = document.getElementById(lensId);
+  const result = document.getElementById(resultId);
+
+  const LENS_W = 160;
+  const LENS_H = 110;
+  const RES_W  = LENS_W * zoomFactor;
+  const RES_H  = LENS_H * zoomFactor;
+
+  lens.style.width  = LENS_W + 'px';
+  lens.style.height = LENS_H + 'px';
+  result.style.width  = RES_W + 'px';
+  result.style.height = RES_H + 'px';
+
+  function move(e) {
+    const rect = img.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+
+    // Clamp lens inside image bounds
+    x = Math.max(LENS_W / 2, Math.min(x, rect.width  - LENS_W / 2));
+    y = Math.max(LENS_H / 2, Math.min(y, rect.height - LENS_H / 2));
+
+    lens.style.left = (x - LENS_W / 2) + 'px';
+    lens.style.top  = (y - LENS_H / 2) + 'px';
+
+    const bgW = rect.width  * zoomFactor;
+    const bgH = rect.height * zoomFactor;
+    const bgX = -(x * zoomFactor - RES_W / 2);
+    const bgY = -(y * zoomFactor - RES_H / 2);
+
+    result.style.backgroundImage    = `url('${img.src}')`;
+    result.style.backgroundSize     = bgW + 'px ' + bgH + 'px';
+    result.style.backgroundPosition = bgX + 'px ' + bgY + 'px';
+
+    // Float result panel near cursor, keeping inside viewport
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    let rx = e.clientX + 24;
+    let ry = e.clientY - RES_H / 2;
+    if (rx + RES_W > vw - 12) rx = e.clientX - RES_W - 24;
+    ry = Math.max(12, Math.min(ry, vh - RES_H - 12));
+    result.style.left = rx + 'px';
+    result.style.top  = ry + 'px';
+  }
+
+  wrap.addEventListener('mouseenter', () => {
+    lens.style.display   = 'block';
+    result.style.display = 'block';
+  });
+  wrap.addEventListener('mouseleave', () => {
+    lens.style.display   = 'none';
+    result.style.display = 'none';
+  });
+  wrap.addEventListener('mousemove', move);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initZoom('zoom-wrap-section', 'zoom-img-section', 'zoom-lens-section', 'zoom-result-section', 4);
+});
+
+/* ===== LIGHTBOX ===== */
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = alt;
+  const lb = document.getElementById('lightbox');
+  lb.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+</body>
+</html>
