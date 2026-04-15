@@ -871,5 +871,12 @@
             <div class="footer-year">2026</div>
         </div>
     </footer>
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed; bottom:2rem; right:2rem; background:rgba(74,103,65,0.12); color:var(--color-sage); border:1px solid rgba(74,103,65,0.2); padding:0.6rem 1rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:400; cursor:pointer; opacity:0; transition:opacity 0.3s ease, background 0.2s ease; z-index:999;" onmouseenter="this.style.background='rgba(74,103,65,0.25)'" onmouseleave="this.style.background='rgba(74,103,65,0.12)'" id="back-to-top">↑ top</button>
+<script>
+window.addEventListener('scroll', function() {
+    const btn = document.getElementById('back-to-top');
+    btn.style.opacity = window.scrollY > 400 ? '1' : '0';
+});
+</script>
 </body>
 </html>
