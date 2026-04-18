@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demachi Yanagi Rooftop — Architecture Project</title>
-    
+    <title>出町柳駅 / Demachi Yanagi Station — Architecture Project</title>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --color-bg: #FFFFFF;
@@ -82,7 +82,7 @@
 
         /* ===== PROJECT HEADER ===== */
         .project-header {
-            padding: 100px 3rem;
+            padding: 80px 3rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -109,28 +109,17 @@
         .project-subline {
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
-            font-size: 0.9375rem;
-            line-height: 1.85;
-            color: var(--color-sage);
-            margin-bottom: 1rem;
-        }
-
-        .project-intro {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 1.0625rem;
-            line-height: 1.85;
+            font-size: 1.1rem;
+            line-height: 1.6;
             color: var(--color-text);
-            opacity: 0.8;
-            max-width: 600px;
             margin-bottom: 2rem;
+            max-width: 700px;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 2rem;
         }
 
         .project-tag {
@@ -140,8 +129,8 @@
             padding: 0.4rem 0.75rem;
             border: 1px solid var(--color-sand);
             color: var(--color-text);
-            background-color: transparent;
             text-transform: none;
+            background-color: transparent;
             transition: background-color 0.2s ease;
         }
 
@@ -149,31 +138,9 @@
             background-color: var(--color-accent-light);
         }
 
-        .pull-quote {
-            border-left: 2px solid var(--color-sage);
-            padding-left: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .pull-quote .quote-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-style: italic;
-            font-size: 1.375rem;
-            line-height: 1.25;
-            color: var(--color-text);
-            margin-bottom: 0.75rem;
-        }
-
-        .pull-quote .quote-by {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 0.8125rem;
-            color: var(--color-sage);
-        }
-
+        /* ===== SECTION SPACING ===== */
         .section {
-            padding: 100px 3rem;
+            padding: 80px 3rem;
         }
 
         .section-inner {
@@ -184,17 +151,16 @@
         .section-heading {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
-            font-size: 36px;
-            line-height: 1.05;
+            font-size: 2.25rem;
             color: var(--color-text);
+            line-height: 1.05;
             margin-bottom: 1rem;
         }
 
         .section-subheading {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
-            font-size: 22px;
-            line-height: 1.2;
+            font-size: 1.375rem;
             color: var(--color-text);
             margin-bottom: 1rem;
         }
@@ -202,75 +168,43 @@
         .section-copy {
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 1.85;
             color: var(--color-text);
             margin-bottom: 1.5rem;
         }
 
         .section-copy--large {
-            font-size: 17px;
+            font-size: 1.0625rem;
             line-height: 1.9;
             max-width: 560px;
         }
 
-        .section-copy--muted {
-            opacity: 0.8;
+        .section-copy--wide {
+            max-width: 660px;
+            margin-bottom: 2rem;
         }
 
-        .two-column,
-        .two-column-55-45 {
+        .section-columns {
             display: grid;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: start;
         }
 
-        .two-column {
+        .section-columns-60-40 {
             grid-template-columns: 60% 40%;
         }
 
-        .two-column-55-45 {
+        .section-columns-55-45 {
             grid-template-columns: 55% 45%;
         }
 
-        .details-panel {
+        .grid-two,
+        .grid-three,
+        .grid-four {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-        }
-
-        .details-label {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 0.6875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-sage);
-        }
-
-        .details-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .details-item {
-            padding: 10px 0;
-            border-top: 1px solid var(--color-sand);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 14px;
-            color: var(--color-text);
-        }
-
-        .download-link {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 14px;
-            color: var(--color-terracotta);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 0.5rem;
+            gap: 2.5rem;
         }
 
         .placeholder-block {
@@ -285,257 +219,101 @@
             opacity: 0.6;
         }
 
-        .placeholder-block.ratio-4-3 {
-            aspect-ratio: 4 / 3;
-        }
-
-        .placeholder-block.ratio-3-2 {
-            aspect-ratio: 3 / 2;
-        }
-
-        .placeholder-block.ratio-16-9 {
-            aspect-ratio: 16 / 9;
-        }
-
-        .full-width-image {
-            aspect-ratio: 21 / 9;
-        }
-
-        .block-spacing {
-            margin-top: 2rem;
-        }
-
         .placeholder-caption {
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
-            font-size: 12px;
+            font-size: 0.75rem;
             font-style: italic;
             color: var(--color-sage);
             margin-top: 0.75rem;
         }
 
-        .section-copy--narrow {
-            max-width: 700px;
+        .pull-quote {
+            border-left: 2px solid var(--color-sage);
+            padding-left: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .list-panel {
-            max-width: 700px;
+        .pull-quote .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.375rem;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
         }
 
-        .list-item {
+        .pull-quote .quote-by {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.8125rem;
+            color: var(--color-sage);
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .feature-item {
             padding: 12px 0;
             border-top: 1px solid var(--color-sand);
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
-            font-size: 15px;
-            line-height: 1.85;
-            color: var(--color-text);
+            font-size: 0.9375rem;
         }
 
-        .list-item::before {
+        .feature-item::before {
             content: '–';
             color: var(--color-terracotta);
             display: inline-block;
             width: 1rem;
-            margin-right: 0.5rem;
         }
 
-        .pull-line {
+        /* ===== PROJECT CONTENT ===== */
+        .details-label {
             font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 24px;
-            color: var(--color-terracotta);
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .horizontal-cards {
-            display: flex;
-            gap: 24px;
-            margin-top: 2rem;
-        }
-
-        .card {
-            border: 1px solid var(--color-sand);
-            border-radius: 1.5rem;
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .card-label {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
+            font-weight: 400;
             font-size: 0.6875rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-sage);
-        }
-
-        .card-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 1.15;
+            letter-spacing: 0.1em;
             color: var(--color-text);
         }
 
-        .card-copy {
+        .details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .details-item {
+            padding: 1rem 0;
+            border-top: 1px solid var(--color-sand);
             font-family: 'DM Sans', sans-serif;
+        }
+
+        .details-item:last-of-type {
+            border-bottom: 1px solid var(--color-sand);
+        }
+
+        .detail-value {
             font-weight: 300;
-            font-size: 14px;
-            line-height: 1.85;
+            font-size: 0.9rem;
             color: var(--color-text);
         }
 
-        .image-row {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .image-row-2 {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .journey-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .journey-label {
+        .download-link {
             font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 0.6875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-sage);
-        }
-
-        .journey-steps {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .journey-step {
-            padding: 0.5rem 0.9rem;
-            border: 1px solid var(--color-sand);
-            border-radius: 999px;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 13px;
-            color: var(--color-text);
-            white-space: nowrap;
-        }
-
-        .journey-arrow {
+            font-weight: 400;
+            font-size: 0.9rem;
             color: var(--color-terracotta);
-        }
-
-        .experience-caption {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            font-size: 12px;
-            font-style: italic;
-            color: var(--color-sage);
+            text-decoration: none;
+            display: inline-block;
             margin-top: 1rem;
+            transition: letter-spacing 0.2s ease;
         }
 
-        .centered-content {
-            max-width: 660px;
-            margin: 0 auto;
-        }
-
-        .image-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .image-grid .placeholder-block {
-            min-height: 220px;
-        }
-
-        .image-grid .placeholder-caption {
-            margin-top: 0.75rem;
-        }
-
-        .hero-image {
-            margin: 3rem 0;
-        }
-
-        /* ===== IMAGE FADE-IN & ZOOM ===== */
-        img, .img-placeholder {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-            overflow: hidden;
-        }
-
-        img.visible, .img-placeholder.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        img:hover, .img-placeholder:hover {
-            transform: scale(1.02);
-            transition: transform 0.4s ease;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 15px;
-            }
-
-            .top-bar {
-                padding: 1rem 1.5rem;
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .project-header,
-            .section {
-                padding: 56px 1.5rem;
-            }
-
-            .project-title {
-                font-size: 3rem;
-            }
-
-            .section-heading {
-                font-size: 28px;
-            }
-
-            .section-subheading {
-                font-size: 20px;
-            }
-
-            .hero-image {
-                aspect-ratio: 4 / 3;
-            }
-
-            .two-column,
-            .two-column-55-45,
-            .image-row,
-            .image-row-2,
-            .horizontal-cards {
-                grid-template-columns: 1fr;
-                display: grid;
-            }
-
-            .horizontal-cards {
-                gap: 1.5rem;
-            }
+        .download-link:hover {
+            letter-spacing: 0.02em;
         }
 
         /* ===== FOOTER ===== */
@@ -573,9 +351,93 @@
             color: var(--color-text);
         }
 
+        /* ===== IMAGE FADE-IN & ZOOM ===== */
+        img:not(#lightbox-img), .img-placeholder {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            overflow: hidden;
+        }
+
+        img:not(#lightbox-img).visible, .img-placeholder.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        img:not(#lightbox-img):hover, .img-placeholder:hover {
+            transform: scale(1.02);
+            transition: transform 0.4s ease;
+        }
+
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            .top-bar {
+                padding: 1rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.4rem;
+            }
+
+            .project-subline {
+                font-size: 0.95rem;
+            }
+
+            .section, .project-header {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .section-columns-60-40,
+            .section-columns-55-45,
+            .grid-two,
+            .grid-three,
+            .grid-four,
+            .user-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* ===== USER CARDS GRID ===== */
+        .user-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* ===== IMAGE MAX WIDTH ===== */
+        .section-inner img:not(#lightbox-img) {
+            max-width: 900px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
+
     <!-- ===== TOP BAR NAVIGATION ===== -->
     <nav class="top-bar">
         <div class="bar-name">
@@ -589,270 +451,268 @@
     <!-- ===== PROJECT HEADER ===== -->
     <header class="project-header section">
         <div class="section-inner">
-            <p class="project-label">Architecture · Transit Design · Kyoto</p>
-            <h1 class="project-title">Demachi Yanagi</h1>
-            <p class="project-subline">出町柳駅の屋根 — 動く建築</p>
-            <p class="project-intro">Redesigning a transit hub in Kyoto as a place of pause, encounter, and orientation — through spatial design and a dynamic adaptive roof.</p>
-            <div class="project-tags">
-                <span class="project-tag">Transit Architecture</span>
-                <span class="project-tag">UX in Space</span>
-                <span class="project-tag">Behavioural Design</span>
-                <span class="project-tag">Kyoto</span>
-                <span class="project-tag">Dynamic Structure</span>
-                <span class="project-tag">User Research</span>
+            <p class="project-label">Architecture · Urban Intervention · Graduation Project 2022 · Revamped 2026</p>
+            <h1 class="project-title">出町柳駅 / Demachi Yanagi Station</h1>
+            <p class="project-subline" style="font-size:1.0625rem; max-width:600px; color:var(--color-text); opacity:0.8; margin-bottom:2rem;">A rooftop intervention at the edge of transit and place</p>
+            <div style="border-left:2px solid var(--color-sage); padding-left:1.5rem; margin-bottom:2rem;">
+                <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; line-height:1.35; color:var(--color-text); margin-bottom:0.75rem;">"A station is not just a transport node — it is one of the most human spaces in a city. People arrive, wait, meet, get lost, and find their way. The design should respond to all of that."</p>
+                <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:13px; color:var(--color-sage);">— Katharina Gordon, project concept statement</p>
             </div>
-            <div class="pull-quote">
-                <p class="quote-text">"A station is not just a transport node — it is one of the most human spaces in a city. People arrive, wait, meet, get lost, and find their way. The design should respond to all of that."</p>
-                <p class="quote-by">— Katharina Gordon, project concept statement</p>
-            </div>
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.5rem;">Contents ↓</p>
+            <nav style="display:flex; flex-wrap:wrap; gap:0.4rem 0.75rem; margin:2rem 0 1.5rem; padding:1.25rem 0; border-top:1px solid var(--color-sand); border-bottom:1px solid var(--color-sand);">
+                <a href="#section-problem" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">The Problem</a>
+                <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
+                <a href="#section-users" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Three Users</a>
+                <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
+                <a href="#section-design" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Design Response</a>
+                <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
+                <a href="#section-roof" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">The Roof System</a>
+                <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
+                <a href="#section-layers" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Spatial Layers</a>
+                <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
+                <a href="#section-process" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Process</a>
+                <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
+                <a href="#section-reflection" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Reflection</a>
+            </nav>
         </div>
     </header>
 
-    <section class="section">
+    <!-- ===== HERO IMAGE ===== -->
+    <section class="section" style="padding-top:0; padding-bottom:0;">
         <div class="section-inner">
-            <div class="placeholder-block img-placeholder full-width-image">Demachi Yanagi Station proposal — rendered view from street level, Kyoto</div>
-            <p class="placeholder-caption">Demachi Yanagi Station proposal — rendered view from street level, Kyoto</p>
+            <img src="assets/images/demachi/demachinighttime.jpeg" alt="Demachi Yanagi station proposal — night render" style="width:100%; display:block; object-fit:cover; aspect-ratio:16/7;">
+            <p class="placeholder-caption">Hero image — night render</p>
         </div>
     </section>
 
     <main>
+
+        <!-- ===== PROJECT INTRO ===== -->
         <section class="section">
-            <div class="section-inner two-column">
+            <div class="section-inner section-columns section-columns-60-40">
                 <div>
-                    <p class="section-copy section-copy--large">Demachi Yanagi is the terminal station of both the Eizan Electric Railway and the Keihan Line — one above ground, one below. Every day, thousands of commuters, students, tourists, and locals pass through it. Many never stop.
-                    This project asks: what would it mean to design a station that people actually want to be in? Not just pass through — but arrive at.</p>
+                    <p class="section-copy section-copy--large">Demachi Yanagi is the terminal station of both the Eizan Electric Railway and the Keihan Line — one above ground, one below. Every day, thousands of commuters, students, tourists, and locals pass through it. Many never stop.</p>
+                    <p class="section-copy section-copy--large">This project asks: what would it mean to design a station that people actually want to be in? Not just pass through — but arrive at. The rooftop intervention creates a new layer above the transit infrastructure — a public space that belongs to the neighbourhood as much as to the railway.</p>
                 </div>
-                <aside class="details-panel">
+                <div style="position:sticky; top:2rem;">
                     <div class="details-label">Project details</div>
                     <ul class="details-list">
-                        <li class="details-item">Location: Demachi Yanagi, Kyoto, Japan</li>
-                        <li class="details-item">Year: [your year]</li>
-                        <li class="details-item">Type: Architecture Project</li>
-                        <li class="details-item">Disciplines: Transit Architecture + Spatial UX</li>
-                        <li class="details-item">Programme: Station redesign proposal</li>
-                        <li class="details-item">Status: Academic proposal</li>
+                        <li class="details-item"><div class="detail-value">Location: Demachi Yanagi, Kyoto</div></li>
+                        <li class="details-item"><div class="detail-value">Type: Urban Intervention · Public Infrastructure</div></li>
+                        <li class="details-item"><div class="detail-value">Year: 2022</div></li>
+                        <li class="details-item"><div class="detail-value">Program: Station redesign · Rooftop · Public space</div></li>
+                        <li class="details-item"><div class="detail-value">Tools: ArchiCAD · Rhinoceros · Physical model</div></li>
                     </ul>
                     <a href="assets/pdfs/demachi/Demachi_online_new_compressed.pdf" class="download-link" target="_blank">Download full presentation →</a>
-                </aside>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-inner two-column">
-                <div>
-                    <h2 class="section-heading">Context</h2>
-                    <p class="section-copy">Demachi Yanagi sits at the northern edge of central Kyoto, where the Kamo River and Takano River meet. The station serves as a crossing point between the underground Keihan Line and the above-ground Eizan Railway — but also as a meeting point, a cycling hub, a shortcut, and a neighbourhood anchor.
-                    People use it without ever boarding a train. They wait here, buy coffee, lock their bikes, cut through to the river. The station is already more than transport — the design just had not caught up.</p>
-                </div>
-                <div>
-            <div class="placeholder-block img-placeholder ratio-4-3">Image placeholder</div>
-                    <p class="placeholder-caption">Site analysis — people flow mapping around Demachi Yanagi Station</p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <!-- ===== THE PROBLEM ===== -->
+        <section class="section" id="section-problem">
             <div class="section-inner">
-                <h2 class="section-heading">The Challenge</h2>
-                <div class="list-panel">
-                    <p class="section-copy section-copy--narrow">Transit spaces are designed for efficiency. They prioritize movement over experience — and at Demachi Yanagi, this creates three specific problems:</p>
-                    <div class="list-item">Limited opportunities to pause — the space rewards moving through, not staying</div>
-                    <div class="list-item">Weak spatial orientation — underground and above-ground levels feel disconnected</div>
-                    <div class="list-item">Minimal interaction between users — people occupy the same space without ever meeting</div>
+                <h2 class="section-heading">The Problem</h2>
+                <div class="pull-quote" style="margin-top:0; margin-bottom:2rem;">
+                    <p class="quote-text" style="color:var(--color-sage);">"The space functions as a corridor, not a place."</p>
                 </div>
-                <p class="pull-line">"The space functions as a corridor, not a place."</p>
+                <div style="margin-bottom:2rem;">
+                    <img src="assets/images/demachi/Flowdiagram.jpg" alt="People flow diagram — Demachi Yanagi site analysis" style="width:100%; display:block; object-fit:cover; aspect-ratio:16/9;">
+                    <p class="placeholder-caption">Site map — people flow diagram (image e)</p>
+                </div>
+                <p class="section-copy section-copy--wide">Transit spaces are designed for efficiency. They prioritize movement over experience — and at Demachi Yanagi, this creates compounding problems. The existing station treats its users as vehicles to be processed rather than people with time, attention, and a desire to be somewhere.</p>
+                <p class="section-copy section-copy--wide">Three specific failures define the space: the station offers almost no reason to slow down or pause; the split between underground and above-ground levels creates disorientation without clear spatial logic; and the users who share the space — commuters, students, locals — move in parallel without any designed opportunity to meet.</p>
             </div>
         </section>
 
-        <section class="section">
+        <!-- ===== THREE USERS ===== -->
+        <section class="section" id="section-users">
             <div class="section-inner">
-                <h2 class="section-heading">Understanding the Users</h2>
-                <p class="section-copy">Rather than defining users by demographics, the project maps them by behaviour — how they move, what they need, and where they get stuck:</p>
-                <div class="horizontal-cards">
-                    <div class="card">
-                        <div class="card-label">Commuter</div>
-                        <div class="card-title">Fast, goal-oriented</div>
-                        <p class="card-copy">Knows the station well. Moves on autopilot. Values efficiency. Has no reason to stop — unless something catches their eye.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Visitor</div>
-                        <div class="card-title">Uncertain, searching</div>
-                        <p class="card-copy">Arrives without a mental map. Reads the space for cues. Easily disoriented by the split between underground and above-ground levels.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-label">Local resident</div>
-                        <div class="card-title">Familiar, routine-based</div>
-                        <p class="card-copy">Uses the station as a neighbourhood hub — bikes, coffee, shortcut to the river. Relationship to the space is habitual, not transactional.</p>
-                    </div>
-                </div>
-                <p class="section-copy">These three groups share the same space simultaneously but rarely interact. The design question becomes: how do you create conditions where their paths can cross — naturally, without forcing it?</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-inner two-column-55-45">
-                <div>
-                    <h2 class="section-heading">Design Intent</h2>
-                    <p class="section-copy">The project aims to transform Demachi Yanagi from a transit corridor into a layered urban place — one that serves efficiency without sacrificing experience.
-                    Three spatial intentions guided every design decision:</p>
-                    <div class="list-panel">
-                        <div class="list-item">Pausing instead of passing — create reasons to slow down</div>
-                        <div class="list-item">Observation instead of isolation — design for visibility across levels and paths</div>
-                        <div class="list-item">Interaction instead of separation — build thresholds where different user groups naturally converge</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="placeholder-block img-placeholder ratio-3-2">Image placeholder</div>
-                    <p class="placeholder-caption">Design intent diagram — from corridor to place</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-inner">
-                <h2 class="section-heading">Spatial Strategy</h2>
-                <p class="section-subheading">間 / The Architecture of Threshold</p>
-                <p class="section-copy">The design introduces a series of layered platforms and thresholds — spaces that are neither fully inside nor fully outside, neither purely functional nor purely social. These in-between zones are where encounter happens.
-                Circulation was studied carefully: where do different user groups converge? Where do paths cross? The design places moments of spatial interest — a widened landing, a view across levels, a sheltered seat — precisely at those intersections.</p>
-                <div class="image-row">
-                    <div>
-                <div class="placeholder-block img-placeholder ratio-4-3">Image placeholder</div>
-                        <p class="placeholder-caption">Spatial organisation diagram — visibility and interaction zones across levels</p>
-                    </div>
-                    <div>
-                <div class="placeholder-block img-placeholder ratio-4-3">Image placeholder</div>
-                        <p class="placeholder-caption">Section showing layered platforms and threshold spaces</p>
-                    </div>
-                    <div>
-                <div class="placeholder-block img-placeholder ratio-4-3">Image placeholder</div>
-                        <p class="placeholder-caption">Axonometric — spatial organisation guiding movement and encounter</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-inner">
-                <h2 class="section-heading">出町柳駅の屋根 — The Dynamic Roof</h2>
-                <p class="section-copy">The most distinctive element of the proposal is a kinetic roof structure — designed to make the building itself behave like a living thing.
-                The form is derived from the willow tree (柳) that gives Demachi Yanagi its name: branching, light, in constant motion. The roof uses a W-truss structural system with fractal solar shade panels — triangular modules that open and close automatically in response to climate, temperature, and light conditions.
-                The concept draws on Mandelbrot's definition of fractal geometry: a structure that looks the same at every scale. Like a willow leaf, the roof panel subdivides into smaller versions of itself — creating a canopy that is structurally rigid but visually weightless.</p>
-                <div class="list-panel">
-                    <div class="list-item">W-truss structural system — provides stability while emphasising the fractal form</div>
-                    <div class="list-item">Solar-powered shade panels — move vertically in response to sun angle and temperature</div>
-                    <div class="list-item">Fractal geometry — self-similar structure at every scale, referencing the willow</div>
-                    <div class="list-item">Dynamic appearance — the building looks different at every hour of every day</div>
-                </div>
-                <div class="image-row-2">
-                    <div>
-                        <div class="placeholder-block img-placeholder ratio-16-9">Image placeholder</div>
-                        <p class="placeholder-caption">West elevation 1:100 — the dynamic roof structure</p>
-                    </div>
-                    <div>
-                        <div class="placeholder-block img-placeholder ratio-16-9">Image placeholder</div>
-                        <p class="placeholder-caption">Fractal panel system detail — willow-inspired geometry</p>
-                    </div>
-                </div>
-                <div class="block-spacing">
-                    <div class="placeholder-block img-placeholder full-width-image">Rendered interior view — light through the fractal canopy</div>
-                    <p class="placeholder-caption">Rendered interior view — light through the fractal canopy</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-inner">
-                <h2 class="section-heading">User Experience in Space</h2>
-                <p class="section-copy">Every spatial decision in this project is a UX decision. The roof is not just structural — it is an orientation device. Its asymmetric form creates a clear sense of direction. The light it filters changes throughout the day, marking time without a clock.
-                The layered floors create a visible relationship between levels — you can see where you are going before you get there. The platforms create moments of pause built into the flow of movement.</p>
-                <div class="two-column-55-45">
-                    <div class="journey-group">
-                        <div class="journey-label">Commuter journey</div>
-                        <div class="journey-steps">
-                            <span class="journey-step">Enter station</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Immediately oriented by roof form</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Move efficiently</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Notice activity in shared zone</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Option to pause or continue</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Exit</span>
+                <h2 class="section-heading">Three Users</h2>
+                <div class="user-cards-grid">
+                    <div style="border:1px solid var(--color-sand); padding:1.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:#d4e3ce; display:flex; align-items:center; justify-content:center;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="18" rx="2"/>
+                                <line x1="5" y1="10" x2="19" y2="10"/>
+                                <line x1="9" y1="22" x2="8" y2="18"/>
+                                <line x1="15" y1="22" x2="16" y2="18"/>
+                                <circle cx="9" cy="14" r="1" fill="#4A6741"/>
+                                <circle cx="15" cy="14" r="1" fill="#4A6741"/>
+                            </svg>
                         </div>
+                        <p class="section-subheading" style="margin-bottom:0;">The Commuter</p>
+                        <p class="section-copy" style="margin-bottom:0;">Knows the station well. Moves through it every day on autopilot. Values efficiency above everything. Has no reason to stop — unless something in the space gives them one.</p>
                     </div>
-                    <div class="journey-group">
-                        <div class="journey-label">Visitor journey</div>
-                        <div class="journey-steps">
-                            <span class="journey-step">Enter</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Feel uncertain</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Read spatial cues — light / openness / structure</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Navigate intuitively</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Arrive at interaction zone</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Slow down</span>
-                            <span class="journey-arrow">→</span>
-                            <span class="journey-step">Explore</span>
+                    <div style="border:1px solid var(--color-sand); padding:1.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:#d4e3ce; display:flex; align-items:center; justify-content:center;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="5" cy="17" r="3"/>
+                                <circle cx="19" cy="17" r="3"/>
+                                <path d="M5 17l5-8h4l5 8"/>
+                                <path d="M10 9l2 8"/>
+                                <line x1="13" y1="5" x2="16" y2="5"/>
+                                <line x1="14" y1="4" x2="14" y2="8"/>
+                            </svg>
                         </div>
+                        <p class="section-subheading" style="margin-bottom:0;">The Student</p>
+                        <p class="section-copy" style="margin-bottom:0;">Uses the station as a waypoint between campus, the river path, and home. Often has a few minutes to spare. Open to a seat, a view, or an unexpected pause. Sensitive to atmosphere over function.</p>
+                    </div>
+                    <div style="border:1px solid var(--color-sand); padding:1.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:#d4e3ce; display:flex; align-items:center; justify-content:center;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                <line x1="6" y1="1" x2="6" y2="4"/>
+                                <line x1="10" y1="1" x2="10" y2="4"/>
+                                <line x1="14" y1="1" x2="14" y2="4"/>
+                            </svg>
+                        </div>
+                        <p class="section-subheading" style="margin-bottom:0;">The Local</p>
+                        <p class="section-copy" style="margin-bottom:0;">Uses the station daily without always taking a train. Locks their bicycle here, takes a shortcut through, buys coffee on the way home. Their relationship to the space is habitual, territorial, and deeply personal.</p>
+                    </div>
+                    <div style="border:1px solid var(--color-sand); padding:1.5rem; display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="width:32px; height:32px; border-radius:50%; background:#d4e3ce; display:flex; align-items:center; justify-content:center;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A6741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <p class="section-subheading" style="margin-bottom:0;">The Tourist</p>
+                        <p class="section-copy" style="margin-bottom:0;">Arrives by Keihan from Gion or Fushimi, transfers to Eizan to reach Kurama or Kibune. Carries a map, moves slowly, looks up. Needs clear wayfinding, a moment to orient, and a spatial experience that already feels like Kyoto before the train even departs.</p>
                     </div>
                 </div>
-                <p class="experience-caption">Behavioural user journeys — the same space, experienced differently</p>
             </div>
         </section>
 
-        <section class="section">
+        <!-- ===== DESIGN RESPONSE ===== -->
+        <section class="section" id="section-design">
+            <div class="section-inner">
+                <h2 class="section-heading">Design Response</h2>
+                <p class="section-copy section-copy--wide">The proposal introduces a rooftop layer — a publicly accessible platform above the station concourse, reached by a wide staircase that announces itself from street level. This is not a utilitarian roof: it is a designed destination.</p>
+                <p class="section-copy section-copy--wide">The spatial logic follows three intentions. First, pause over passage: the rooftop creates a reason to stop, with framed views to the Kamo and Takano rivers, sheltered seating, and open areas for gathering. Second, legibility: the roof structure — visible from both above and below — acts as an orientation marker across the station's split levels. Third, threshold: the staircase from street to roof creates a gradual transition from movement to stillness, from transit to place.</p>
+                <div style="margin-bottom:2rem;">
+                    <img src="assets/images/demachi/demachidaytime.jpg" alt="Demachi Yanagi station — daytime exterior render" style="width:100%; display:block; object-fit:cover; aspect-ratio:16/7;">
+                    <p class="placeholder-caption">Daytime exterior render (image d)</p>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                    <div>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:4/3;">Threshold zones diagram (optional — add if you make it)</div>
+                        <p class="placeholder-caption">Threshold zones diagram (optional — add if you make it)</p>
+                    </div>
+                    <div>
+                        <img src="assets/images/demachi/rooftruss.jpg" alt="Upward view of W-truss lattice roof structure" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;">
+                        <p class="placeholder-caption">Upward lattice render (image c)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== THE ROOF SYSTEM ===== -->
+        <section class="section" id="section-roof">
+            <div class="section-inner">
+                <h2 class="section-heading">The Roof System</h2>
+                <p class="section-copy section-copy--wide">The roof is the project's central structural and conceptual move. A W-truss system supports a canopy of fractal shade panels — triangular modules derived from the geometry of the willow leaf (柳) that names the area. The panels respond to sun angle and temperature, opening and closing automatically throughout the day.</p>
+                <p class="section-copy section-copy--wide">The form is drawn from Mandelbrot's definition of fractal geometry: a structure that appears the same at every scale. Like a willow leaf, the panel subdivides into smaller versions of itself — creating a surface that is structurally rigid but visually weightless. Under the canopy, the light shifts constantly. The station looks different at eight in the morning than it does at four in the afternoon.</p>
+                <!-- How the Roof Works -->
+                <p style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; color:var(--color-text); line-height:1.05; margin:2.5rem 0 1.5rem;">How the Roof Works</p>
+
+                <div style="max-width:800px; margin:0 auto 1.5rem;">
+                    <div style="background-color:#FFFFFF; padding:32px;">
+                        <img src="assets/images/demachi/axo-layers.jpg" alt="Exploded axonometric showing fractal panel layers" style="width:100%; display:block;">
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:12px; font-style:italic; color:var(--color-sage); margin-top:0.75rem;">Fractal panel system — exploded axonometric showing layered roof geometry</p>
+                </div>
+
+                <div style="display:flex; gap:24px; justify-content:center; margin:0 auto 1.5rem;">
+                    <div style="max-width:380px; width:100%;">
+                        <div style="background-color:#FFFFFF; padding:32px;">
+                            <img src="assets/images/demachi/axo-sun-winter.jpg" alt="Roof panel position in winter — open to sun" style="width:100%; display:block;">
+                        </div>
+                        <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:12px; font-style:italic; color:var(--color-sage); margin-top:0.75rem;">Winter — panels open, maximum light on platform</p>
+                    </div>
+                    <div style="max-width:380px; width:100%;">
+                        <div style="background-color:#FFFFFF; padding:32px;">
+                            <img src="assets/images/demachi/axo-sun-summer.jpg" alt="Roof panel position in summer — tilted for shade" style="width:100%; display:block;">
+                        </div>
+                        <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:12px; font-style:italic; color:var(--color-sage); margin-top:0.75rem;">Summer — panels tilt, casting shade below</p>
+                    </div>
+                </div>
+
+                <div style="max-width:400px; margin:0 auto 2.5rem;">
+                    <div style="background-color:#FFFFFF; padding:32px;">
+                        <img src="assets/images/demachi/axo-detail.jpg" alt="Roof joint and connection detail" style="width:100%; display:block;">
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:12px; font-style:italic; color:var(--color-sage); margin-top:0.75rem;">W-truss connection node — structural detail</p>
+                </div>
+
+                <!-- Existing model photos -->
+                <div style="margin-bottom:2rem;">
+                    <img src="assets/images/demachi/fractalacryl.jpg" alt="Hand touching fractal acrylic panel — roof detail model" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;">
+                    <p class="placeholder-caption">Hand touching fractal panel (image b)</p>
+                </div>
+                <div style="margin-bottom:2.5rem;">
+                    <img src="assets/images/demachi/fractalmodel2.jpg" alt="Fractal roof model close-up" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;">
+                    <p class="placeholder-caption">Close-up roof model (image a)</p>
+                </div>
+
+                <!-- From Willow to Structure -->
+                <p style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; color:var(--color-text); line-height:1.05; margin:0 0 1.5rem;">From Willow to Structure</p>
+
+                <div style="max-width:600px; margin:0 auto 1rem;">
+                    <div style="background-color:#FFFFFF; padding:32px;">
+                        <img src="assets/images/demachi/willow-concept.jpg" alt="Concept diagram — from willow leaf to fractal roof geometry" style="width:100%; display:block;">
+                    </div>
+                    <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:12px; font-style:italic; color:var(--color-sage); margin-top:0.75rem;">柳 — the willow leaf as structural and formal origin</p>
+                </div>
+                <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:15px; line-height:1.85; color:var(--color-text); max-width:600px; margin-top:1rem;">The name 出町柳 — Demachi Yanagi — means standing willows. The fractal geometry of the roof is a direct translation of the willow leaf: a self-similar form that repeats at every scale, appearing light and organic while providing structural rigidity.</p>
+            </div>
+        </section>
+
+        <!-- ===== SPATIAL LAYERS ===== -->
+        <section class="section" id="section-layers">
+            <div class="section-inner">
+                <h2 class="section-heading">Spatial Layers</h2>
+                <p class="section-copy section-copy--wide">The project organises space across three vertical layers. At ground level, the existing station flow continues — efficient, legible, and largely unchanged. An intermediate landing, set half a level above street, creates the first pause point: wide enough to linger, open enough to see across the station, shaded enough to feel sheltered.</p>
+                <p class="section-copy section-copy--wide">The rooftop is the third layer and the main destination. From here, the rivers are visible on both sides. The city spreads north toward the mountains. The fractal canopy filters the light above. Below, the trains arrive and depart. The roof belongs to no particular user type — it is public space in the strictest sense: available to anyone who climbs the stair.</p>
+            </div>
+        </section>
+
+        <!-- ===== PROCESS ===== -->
+        <section class="section" id="section-process">
             <div class="section-inner">
                 <h2 class="section-heading">Process</h2>
-                <p class="section-copy">The design evolved through cycles of site observation, circulation mapping, structural experimentation, and spatial testing. People flow analysis on the site informed the placement of every threshold and platform.</p>
-                <div class="image-grid">
+                <p class="section-copy section-copy--wide">The design developed through site observation, people flow mapping, and iterative physical modelling. The first site visits tracked how users actually moved through the station — where they paused, where they accelerated, where they looked confused. Circulation maps showed the gaps: underused corners, missed views, disconnected levels.</p>
+                <p class="section-copy section-copy--wide">Physical models tested the structural logic of the W-truss and the fractal panel system at 1:50. Each iteration adjusted the canopy density, the stair geometry, and the relationship between the rooftop edge and the surrounding streets. The process moved between sketch, model, and section drawing in fast cycles, each one tightening the connection between structural ambition and spatial experience.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem;">
                     <div>
-                        <div class="placeholder-block img-placeholder ratio-3-2">Image placeholder</div>
-                        <p class="placeholder-caption">People flow analysis — mapping movement patterns around the station</p>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:4/3;">Physical model sun flare (image f)</div>
+                        <p class="placeholder-caption">Physical model sun flare (image f)</p>
                     </div>
                     <div>
-                        <div class="placeholder-block img-placeholder ratio-3-2">Image placeholder</div>
-                        <p class="placeholder-caption">Early spatial diagrams — exploring circulation and visibility</p>
-                    </div>
-                    <div>
-                        <div class="placeholder-block img-placeholder ratio-3-2">Image placeholder</div>
-                        <p class="placeholder-caption">Structural studies — W-truss and fractal panel iterations</p>
-                    </div>
-                    <div>
-                        <div class="placeholder-block img-placeholder ratio-3-2">Image placeholder</div>
-                        <p class="placeholder-caption">Floor plan studies — ground, second, and third level layouts</p>
+                        <div class="placeholder-block img-placeholder" style="aspect-ratio:4/3;">Model detail (image a)</div>
+                        <p class="placeholder-caption">Model detail (image a)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-inner centered-content">
-                <h2 class="section-heading">Outcome</h2>
-                <p class="section-copy">The final proposal transforms Demachi Yanagi Station into a layered urban environment — one that serves commuters efficiently while giving visitors orientation, and giving locals a reason to stay.
-                The dynamic roof makes the building responsive: it changes with the weather, the season, and the time of day. The station becomes a place that people notice, remember, and return to — not just pass through.</p>
-                <div class="placeholder-block img-placeholder ratio-16-9">Demachi Yanagi proposal — street level perspective</div>
-                <p class="placeholder-caption">Demachi Yanagi proposal — street level perspective</p>
+        <!-- ===== REFLECTION ===== -->
+        <section class="section" id="section-reflection">
+            <div class="section-inner">
+                <h2 class="section-heading">Reflection</h2>
+                <div style="max-width:660px;">
+                    <p class="section-copy">This project taught me that transit spaces are already UX problems — they just aren't always framed that way. People feel lost, rushed, or invisible not because of their own failings but because the space gives them no other option.</p>
+                    <p class="section-copy">Designing the roof was the moment I understood that architecture and interaction design are asking the same question: how does this person feel right now, and what does the environment do to help them? A commuter who can see the river from a rooftop, even for thirty seconds, has had a different day. That is what design is for.</p>
+                    <p class="section-copy">That question — how do we build environments that serve the full range of a person, not just their most efficient self — is what led me from architecture toward interaction design. The tools change. The question stays the same.</p>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-inner centered-content">
-                <h2 class="section-heading">Reflection</h2>
-                <p class="section-copy">What this project taught me is that every transit space is already a UX problem — it just isn't always framed that way. People are confused, rushed, or isolated not because they lack willpower, but because the space gives them no other option.
-                Designing the roof was the moment I understood that architecture and interaction design are asking the same question: how does this person feel right now, and what does the environment do to help them?
-                That question is what I want to pursue further — with more tools, more rigour, and more people to think alongside.</p>
-            </div>
-        </section>
     </main>
 
     <!-- ===== SCRIPT FOR IMAGE FADE-IN ===== -->
     <script>
-        const images = document.querySelectorAll('img, .img-placeholder');
+        const images = document.querySelectorAll('img:not(#lightbox-img), .img-placeholder');
         const imgObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -867,16 +727,17 @@
     <footer>
         <div class="footer-content">
             <div class="footer-name">Katharina Komori <span style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.7rem; color:var(--color-sage); font-style:italic; opacity:0.75;">née Gordon</span></div>
-            <div class="footer-divider">間</div>
             <div class="footer-year">2026</div>
         </div>
     </footer>
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed; bottom:2rem; right:2rem; background:rgba(74,103,65,0.12); color:var(--color-sage); border:1px solid rgba(74,103,65,0.2); padding:0.6rem 1rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:400; cursor:pointer; opacity:0; transition:opacity 0.3s ease, background 0.2s ease; z-index:999;" onmouseenter="this.style.background='rgba(74,103,65,0.25)'" onmouseleave="this.style.background='rgba(74,103,65,0.12)'" id="back-to-top">↑ top</button>
-<script>
-window.addEventListener('scroll', function() {
-    const btn = document.getElementById('back-to-top');
-    btn.style.opacity = window.scrollY > 400 ? '1' : '0';
-});
-</script>
+
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed; bottom:2rem; right:2rem; background:rgba(74,103,65,0.12); color:var(--color-sage); border:1px solid rgba(74,103,65,0.2); padding:0.6rem 1rem; font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:400; cursor:pointer; opacity:0; transition:opacity 0.3s ease, background 0.2s ease; z-index:999;" onmouseenter="this.style.background='rgba(74,103,65,0.25)'" onmouseleave="this.style.background='rgba(74,103,65,0.12)'" id="back-to-top">↑ top</button>
+    <script>
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('back-to-top');
+        btn.style.opacity = window.scrollY > 400 ? '1' : '0';
+    });
+    </script>
+
 </body>
 </html>
