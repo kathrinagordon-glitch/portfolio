@@ -101,19 +101,16 @@
         .hero {
             height: 100vh;
             display: flex;
-            align-items: flex-end;
-            padding: 0 3rem 5rem;
+            align-items: center;
+            padding: 0 3rem;
             margin-top: 5rem;
             position: relative;
             overflow: hidden;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            max-width: 680px;
             width: 100%;
-            align-items: flex-end;
         }
 
         .hero-left {
@@ -510,12 +507,7 @@
             }
 
             .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-right {
-                justify-content: center;
+                max-width: 100%;
             }
 
             #work {
@@ -594,25 +586,21 @@
                 <div class="hero-label">User Research · Spatial UX · Interaction Design · Systems Thinking · Community-Centered Design</div>
                 <h1 class="hero-heading">Space that brings people together.</h1>
                 <p class="hero-subline">Architecture background. UX thinking. Designing the conditions for human connection — in space and in interface.</p>
-                <a href="#work" class="hero-cta">See the project ↓</a>
+                <a href="#work" class="hero-cta">See projects ↓</a>
             </div>
 
-            <!-- Right column: image placeholder -->
-            <div class="hero-right">
-                <div class="hero-image-placeholder">Image placeholder</div>
-            </div>
         </div>
     </section>
 
     <!-- ===== WORK SECTION ===== -->
     <section id="work">
-        <p class="section-label">選ばれた作品 / Selected Work</p>
+        <p class="section-label">Selected Work</p>
 
         <div class="work-grid">
             <!-- Card 1: Hyggehäuser -->
             <article class="work-card">
                 <a href="project-hygge.html" style="display: block; text-decoration: none; color: inherit; cursor: pointer;">
-                    <img src="assets/images/hygge/Exterior .jpeg" alt="Hyggehäuser — terraced courtyard view" style="width:100%; display:block; aspect-ratio:4/3; object-fit:cover;">
+                    <img src="assets/images/hygge/golden_hour.jpeg" alt="Hyggehäuser — shared terraces at golden hour" style="width:100%; display:block; aspect-ratio:4/3; object-fit:cover;">
                     <h2 class="card-title">Hyggehäuser</h2>
                     <p class="card-description">From spatial research to digital platform — a full UX case study rooted in architecture. How do you design a building that makes community inevitable?</p>
                     <div class="card-tags">
@@ -628,9 +616,9 @@
             <!-- Card 2: Demachi Yanagi Rooftop -->
             <article class="work-card">
                 <a href="project-demachi.html" style="display: block; text-decoration: none; color: inherit; cursor: pointer;">
-                    <div class="card-image-placeholder">Image placeholder</div>
+                    <img src="assets/images/demachi/demachinighttime.jpeg" alt="Demachi Yanagi Station — night render" style="width:100%; display:block; aspect-ratio:4/3; object-fit:cover;">
                     <h2 class="card-title">Demachi Yanagi Rooftop</h2>
-                    <p class="card-description">Redesigning a transit hub through behavioural research and spatial interaction design. Three user types, one space, and the question of how architecture guides human decision-making.</p>
+                    <p class="card-description">Redesigning a transit hub through behavioural research and spatial interaction design. Four user types, one space, and the question of how architecture guides human decision-making.</p>
                     <div class="card-tags">
                         <span class="card-tag">Architecture</span>
                         <span class="card-tag">Urban Design</span>
@@ -648,7 +636,7 @@
 
     <!-- ===== ABOUT SECTION ===== -->
     <section id="about">
-        <p class="section-label">について / About</p>
+        <p class="section-label">About</p>
 
         <div class="about-content">
             <!-- Left column: text content -->
@@ -678,10 +666,10 @@
     <!-- ===== CONTACT SECTION ===== -->
     <section id="contact">
         <div class="contact-content">
-            <p class="section-label">連絡 / Contact</p>
+            <p class="section-label">Contact</p>
             <h2 class="contact-heading">Currently applying.</h2>
             <div class="contact-links">
-                <a href="mailto:kathrina.gordon@gmail.com" class="contact-link">kathrina.gordon@gmail.com</a>
+                <a href="mailto:katharina.komori@gmail.com" class="contact-link">katharina.komori@gmail.com</a>
             </div>
         </div>
     </section>
