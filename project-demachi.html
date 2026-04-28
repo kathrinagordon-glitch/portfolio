@@ -427,6 +427,33 @@
             margin-top: 2rem;
         }
 
+        /* ===== IMAGE ZOOM ===== */
+        .zoom-wrap {
+            position: relative;
+            display: block;
+            width: 100%;
+            overflow: visible;
+        }
+        .zoom-lens {
+            position: absolute;
+            border: 1.5px solid rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.06);
+            pointer-events: none;
+            display: none;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 2px 12px rgba(0,0,0,0.18);
+            cursor: crosshair;
+        }
+        .zoom-result {
+            display: none;
+            position: fixed;
+            border: 1px solid rgba(0,0,0,0.12);
+            background-repeat: no-repeat;
+            background-color: #f8f5f0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
         /* ===== IMAGE MAX WIDTH ===== */
         .section-inner img:not(#lightbox-img) {
             max-width: 900px;
@@ -458,8 +485,8 @@
                 <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; line-height:1.35; color:var(--color-text); margin-bottom:0.75rem;">"A station is not just a transport node — it is one of the most human spaces in a city. People arrive, depart, wait, meet, get lost, and find their way. The design should respond to all of that."</p>
                 <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:13px; color:var(--color-sage);">— Katharina Komori, project concept statement</p>
             </div>
-            <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.5rem;">Contents ↓</p>
-            <nav style="display:flex; flex-wrap:wrap; gap:0.4rem 0.75rem; margin:2rem 0 1.5rem; padding:1.25rem 0; border-top:1px solid var(--color-sand); border-bottom:1px solid var(--color-sand);">
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:var(--color-sage); margin-bottom:0.5rem;">Jump to ↓</p>
+            <nav style="display:flex; flex-wrap:wrap; gap:0.4rem 0.75rem; margin:0.5rem 0 1.5rem; padding:1.25rem 0; border-top:1px solid var(--color-sand); border-bottom:1px solid var(--color-sand); background-color:var(--color-accent-light);">
                 <a href="#section-problem" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">The Problem</a>
                 <span style="color:var(--color-sand); font-size:0.75rem;">·</span>
                 <a href="#section-users" style="font-family:'DM Sans',sans-serif; font-size:0.75rem; font-weight:400; color:var(--color-sage); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">Who Uses This Space</a>
@@ -659,8 +686,12 @@
                     <p class="placeholder-caption">Upward lattice render</p>
                 </div>
                 <div style="margin-top:2rem;">
-                    <img src="assets/images/demachi/Demachielevation_page.jpg" alt="Elevation — street-level view of the rooftop intervention" style="width:100%; height:auto; display:block;">
-                    <p class="placeholder-caption"><em>Elevation — street-level view of the rooftop intervention</em></p>
+                    <div class="zoom-wrap" id="zoom-wrap-elevation">
+                        <img id="zoom-img-elevation" src="assets/images/demachi/Demachielevation_page.jpg" alt="Elevation — street-level view of the rooftop intervention" onclick="openLightbox(this.src, this.alt)" style="width:100%; height:auto; display:block; cursor:crosshair;">
+                        <div class="zoom-lens" id="zoom-lens-elevation"></div>
+                    </div>
+                    <div class="zoom-result" id="zoom-result-elevation"></div>
+                    <p class="placeholder-caption"><em>Elevation — street-level view of the rooftop intervention. Hover to zoom · Click to enlarge.</em></p>
                 </div>
             </div>
         </section>
@@ -695,7 +726,7 @@
                     </div>
                 </div>
 
-                <div style="max-width:400px; margin:0 auto 2.5rem;">
+                <div style="max-width:700px; margin:0 auto 2.5rem;">
                     <div style="background-color:#FFFFFF; padding:32px;">
                         <img src="assets/images/demachi/axo-detail.jpg" alt="Roof joint and connection detail" style="width:100%; display:block;">
                     </div>
@@ -707,9 +738,9 @@
                 <!-- From Willow to Structure -->
                 <p style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; color:var(--color-text); line-height:1.05; margin:0 0 1.5rem;">From Willow to Structure</p>
 
-                <div style="max-width:600px; margin:0 auto 1rem;">
-                    <div style="background-color:#4A6741; padding:12px; display:flex; justify-content:center; align-items:center; overflow:hidden;">
-                        <img src="assets/images/demachi/Willow.png" alt="Concept diagram — from willow leaf to fractal roof geometry" style="width:140%; max-width:140%; height:auto; display:block; margin:0 auto;">
+                <div style="margin:0 0 1rem;">
+                    <div style="background-color:#4A6741; padding:16px 0; overflow:hidden;">
+                        <img src="assets/images/demachi/Willow.png" alt="Concept diagram — from willow leaf to fractal roof geometry" style="width:100%; height:auto; display:block;">
                     </div>
                     <p style="font-family:'DM Sans',sans-serif; font-weight:300; font-size:12px; font-style:italic; color:var(--color-sage); margin-top:0.75rem;">The willow leaf as structural and formal origin</p>
                 </div>
@@ -866,5 +897,59 @@
     });
     </script>
 
+<div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; cursor:zoom-out; align-items:center; justify-content:center;">
+  <img id="lightbox-img" style="max-width:92%; max-height:92vh; display:block; margin:auto;">
+  <p id="lightbox-caption" style="color:#ccc; text-align:center; font-size:0.8rem; margin-top:1rem; font-family:'DM Sans', sans-serif;"></p>
+</div>
+<script>
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = alt;
+  const lb = document.getElementById('lightbox');
+  lb.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+function initZoom(wrapId, imgId, lensId, resultId, zoomFactor) {
+  const wrap   = document.getElementById(wrapId);
+  const img    = document.getElementById(imgId);
+  const lens   = document.getElementById(lensId);
+  const result = document.getElementById(resultId);
+  const LENS_W = 160, LENS_H = 110;
+  const RES_W  = LENS_W * zoomFactor, RES_H = LENS_H * zoomFactor;
+  lens.style.width  = LENS_W + 'px';
+  lens.style.height = LENS_H + 'px';
+  result.style.width  = RES_W + 'px';
+  result.style.height = RES_H + 'px';
+  function move(e) {
+    const rect = img.getBoundingClientRect();
+    let x = Math.max(LENS_W/2, Math.min(e.clientX - rect.left, rect.width  - LENS_W/2));
+    let y = Math.max(LENS_H/2, Math.min(e.clientY - rect.top,  rect.height - LENS_H/2));
+    lens.style.left = (x - LENS_W/2) + 'px';
+    lens.style.top  = (y - LENS_H/2) + 'px';
+    const bgX = -(x * zoomFactor - RES_W/2);
+    const bgY = -(y * zoomFactor - RES_H/2);
+    result.style.backgroundImage    = `url('${img.src}')`;
+    result.style.backgroundSize     = (rect.width * zoomFactor) + 'px ' + (rect.height * zoomFactor) + 'px';
+    result.style.backgroundPosition = bgX + 'px ' + bgY + 'px';
+    let rx = e.clientX + 24, ry = e.clientY - RES_H/2;
+    if (rx + RES_W > window.innerWidth - 12) rx = e.clientX - RES_W - 24;
+    ry = Math.max(12, Math.min(ry, window.innerHeight - RES_H - 12));
+    result.style.left = rx + 'px';
+    result.style.top  = ry + 'px';
+  }
+  wrap.addEventListener('mouseenter', () => { lens.style.display = 'block'; result.style.display = 'block'; });
+  wrap.addEventListener('mouseleave', () => { lens.style.display = 'none';  result.style.display = 'none';  });
+  wrap.addEventListener('mousemove', move);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  initZoom('zoom-wrap-elevation', 'zoom-img-elevation', 'zoom-lens-elevation', 'zoom-result-elevation', 4);
+});
+</script>
 </body>
 </html>
